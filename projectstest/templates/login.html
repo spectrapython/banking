@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div>
+<body style="background-color:lightgreen;color:red">
+
+<center>
+    <br><br> <br><br>
+    <h1><u>LOGIN PAGE</u></h1> <br>
+<form action=" " method="post">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="enter your username"><br> <br>
+  <input type="password" name="password" placeholder="enter password"><br> <br>
+  <input type="submit">
+  <br><br><br>
+   <h5> <a style="color:red" href="/register">register link</a></h5>
+
+</form>
+</center>
+</body>
+    </div>
+</html>
+{%  endblock %}

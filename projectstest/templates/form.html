@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+</head>
+
+<body style="background-color:gray;color:white">
+ <center>
+      <br>
+     <h2 style="color:red"> <u>FORM PAGE </u></h2> <br>
+     <div class="container">
+<form  style="color:white" action="" method="post">
+    {% csrf_token %}
+    <label>Enter your name &nbsp;&nbsp;&nbsp;</label><input type="text" name="name" placeholder="enter your name"><br><br>
+    <label>Date of birth &nbsp;&nbsp;&nbsp;</label><input type="date" name="date" placeholder="enter the date of birth"><br><br>
+    <label>Enter your age &nbsp;&nbsp;&nbsp;</label><input type="number" name="age" placeholder="enter your age"><br><br>
+    <label>Enter your gender &nbsp;&nbsp;&nbsp; </label>
+    <input type="radio" name="gender"><label>male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="radio" name="gender"><label>  female</label><br><br>
+    <label> phone number &nbsp;&nbsp;&nbsp;</label><input type="text" name="phnumber" placeholder="enter your phone number"><br><br>
+    <label>Enter your mail ID &nbsp;&nbsp;&nbsp;</label><input type="email" name="MAIL ID" placeholder="enter your MAIL ID"><br><br>
+    <label>Enter your address &nbsp;&nbsp;&nbsp;</label><input type="text" name="address" placeholder="enter your address"><br><br>
+
+
+<div>
+    <div class="container">
+        <div class="f-group">
+            <label>District</label>
+            <select>
+                <option>choose district</option>
+                {% for dist in distr %}
+                <option value="{{dist.id}}">{{dist.name}}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+    </div>
+</div><br>
+
+
+
+    <div>
+    <div class="container">
+        <div class="f-group">
+            <label>branch</label>
+            <select>
+                <option>choose branch</option>
+                {% for bran in branch1 %}
+                <option value="{{bran.id}}">{{bran.name}}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+    </div>
+</div><br>
+
+    <label>account type</label>
+    <select>
+        <option>saving account</option>
+        <option>current account</option>
+    </select><br><br>
+    <label>materials provide &nbsp;&nbsp;&nbsp;</label>
+    <input type="checkbox" name="materials"><label> debit card &nbsp;&nbsp;&nbsp;</label>
+    <input type="checkbox" name="materials"><label> credit card &nbsp;&nbsp;&nbsp;</label>
+    <input type="checkbox" name="materials"><label> cheque book &nbsp;&nbsp;&nbsp;</label><br>
+    </form>
+    <button onclick="myFunction()">
+        <form class="col-sm-10" method="post" action="">
+            {% csrf_token %}
+            <input class="button" type="submit" value="submit"/>
+    </button>
+         <h1>
+         <script>
+             function myFunction(){
+             alert("application accepted");
+             }
+         </script>
+             </h1>
+    </form>
+
+         <form action="/" class="inline">
+             <br><button>logout</button>
+
+         </form>
+ </div>
+     <br>
+     <h4><a href="/">click here-return to the home page</a> </h4>
+ </center>
+</body>
+</html>
+{% endblock %}
